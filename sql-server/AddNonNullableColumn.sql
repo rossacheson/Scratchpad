@@ -4,7 +4,7 @@ IF NOT EXISTS(
         SELECT 1
         FROM [INFORMATION_SCHEMA].[COLUMNS]
         WHERE [TABLE_SCHEMA] = 'dbo'
-            AND [TABLE_NAME] = 'User'
+            AND [TABLE_NAME] = 'TableName'
             AND [COLUMN_NAME] = 'ColumnName'
     )
     BEGIN
