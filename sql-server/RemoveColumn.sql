@@ -6,6 +6,6 @@ IF EXISTS (
 )
 BEGIN
     ALTER TABLE dbo.TableName
-    DROP COLUMN ColumnName;
+    DROP COLUMN ColumnName
 END
 GO
