@@ -8,14 +8,10 @@ IF NOT EXISTS(
             AND [COLUMN_NAME] = 'ColumnName'
     )
     BEGIN
-
-    ALTER TABLE dbo.[TableName] ADD ColumnName BIT NULL
-
-    EXEC ('UPDATE dbo.[TableName] SET ColumnName = 1')
-
-    ALTER TABLE dbo.[TableName] ALTER COLUMN ColumnName BIT NOT NULL
-
-END
+        ALTER TABLE dbo.[TableName] ADD ColumnName BIT NULL
+        EXEC ('UPDATE dbo.[TableName] SET ColumnName = 1')
+        ALTER TABLE dbo.[TableName] ALTER COLUMN ColumnName BIT NOT NULL
+    END
 GO
 
 -- Add ColumnName column to TableName with named foreign key
