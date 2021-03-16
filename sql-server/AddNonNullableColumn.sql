@@ -28,3 +28,17 @@ IF NOT EXISTS(
         ALTER TABLE dbo.[TableName] ALTER COLUMN ColumnName BIGINT NOT NULL
     END
 GO
+
+-- Add ColumnName column to TableName with named default
+-- Example here is BIT data type
+IF NOT EXISTS(
+        SELECT 1
+        FROM [INFORMATION_SCHEMA].[COLUMNS]
+        WHERE [TABLE_SCHEMA] = 'dbo'
+            AND [TABLE_NAME] = 'TableName'
+            AND [COLUMN_NAME] = 'ColumnName'
+    )
+    BEGIN
+        ALTER TABLE dbo.[TableName] ADD ColumnName BIT NOT NULL CONSTRAINT DF_TableName_ColumnName DEFAULT (0)
+    END
+GO
